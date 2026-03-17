@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "Moodly | Dashboard",
+};
+
 export default function DashboardPage(){
     return (
         <div>
