@@ -17,12 +17,25 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+  const header = (
+    <header>
+
+    </header>
+  );
+
+  const footer = (
+    <footer>
+
+    </footer>
+  );
+
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {header}
         {children}
+        {footer}
       </body>
     </html>
   );
