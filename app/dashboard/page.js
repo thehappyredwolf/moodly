@@ -3,16 +3,16 @@ import Login from "@/components/Login";
 import Main from "@/components/Main";
 
 export const metadata = {
-  title: "Moodly | Dashboard",
+    title: "Moodly | Dashboard",
 };
 
-export default function DashboardPage(){
+export default function DashboardPage() {
     const isAuthenticated = false;
     let children = (
         <Login />
     );
 
-    if (isAuthenticated){
+    if (isAuthenticated) {
         children = (
             <Dashboard />
         )
@@ -22,6 +22,6 @@ export default function DashboardPage(){
         <Main>
             {children}
         </Main>
-        
+
     )
 }
