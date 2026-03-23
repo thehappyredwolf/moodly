@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 const fugazOne = Fugaz_One({
   variable: "--font-fugaz-one",
   subsets: ["latin"],
-  weight: ["400"]
+  weight: ["400"],
 });
 
 export const metadata = {
@@ -23,24 +23,25 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-
   const header = (
-    <header className="p-4 sm:p-8 flex items-center justify-between
-    gap-4">
-      <h1 className={`text-base sm:text-lg textGradient ${fugazOne.className}`}>Moodly</h1>
+    <header
+      className="p-4 sm:p-8 flex items-center justify-between
+    gap-4"
+    >
+      <h1 className={`text-base sm:text-lg textGradient ${fugazOne.className}`}>
+        Moodly
+      </h1>
     </header>
   );
 
-  const footer = (
-    <footer className="p-4 sm:p-8">
-
-    </footer>
-  );
+  const footer = <footer className="p-4 sm:p-8"></footer>;
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={` w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen
-        flex flex-col ${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={` w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen
+        flex flex-col text-slate-800 ${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {header}
         {children}
         {footer}
