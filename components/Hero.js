@@ -1,6 +1,7 @@
 import { Fugaz_One } from "next/font/google";
 import React from "react";
 import Button from "./Button";
+import Calendar from "./Calendar";
 
 const fugazOne = Fugaz_One({
   variable: "--font-fugaz-one",
@@ -25,6 +26,7 @@ export default function Hero() {
         <Button text="Sign Up"/>
         <Button text="Login" dark/>
       </div>
+      <Calendar />
     </div>
   );
 }
