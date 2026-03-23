@@ -17,7 +17,13 @@ export default function Button(props) {
         (dark ? " text-white bg-indigo-600" : " text-indigo-600 ")
       }
     >
-      <p className={ "px-6 sm:px-10 whitespace-nowrap py-2 sm:py-3 " + fugazOne.className}>{text}</p>
+      <p
+        className={
+          "px-6 sm:px-10 whitespace-nowrap py-2 sm:py-3 " + fugazOne.className
+        }
+      >
+        {text}
+      </p>
     </button>
   );
 }
