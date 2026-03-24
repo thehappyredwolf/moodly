@@ -1,6 +1,6 @@
-import { NEXT_RESUME_HEADER } from "next/dist/lib/constants";
 import { Fugaz_One } from "next/font/google";
 import React from "react";
+import Calendar from "./Calendar";
 
 const fugazOne = Fugaz_One({
   variable: "--font-fugaz-one",
@@ -64,6 +64,7 @@ export default function Dashboard() {
           );
         })}
       </div>
+      <Calendar />
     </div>
   );
 }
