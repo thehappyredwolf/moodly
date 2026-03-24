@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, Fugaz_One } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { AuthProvider } from "@/context/AuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,14 +51,16 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={` w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen
+      <AuthProvider>
+        <body
+          className={` w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen
         flex flex-col text-slate-800 ${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {header}
-        {children}
-        {footer}
-      </body>
+        >
+          {header}
+          {children}
+          {footer}
+        </body>
+      </AuthProvider>
     </html>
   );
 }
