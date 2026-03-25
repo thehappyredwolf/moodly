@@ -1,8 +1,10 @@
 "use client";
 
 import { Fugaz_One } from "next/font/google";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Calendar from "./Calendar";
+import { useAuth } from "@/context/AuthContext";
+import { setDoc } from "firebase/firestore";
 
 const fugazOne = Fugaz_One({
   variable: "--font-fugaz-one",
@@ -11,6 +13,40 @@ const fugazOne = Fugaz_One({
 });
 
 export default function Dashboard() {
+  const { currentUser, userDataObj, setUserDataObj } = useAuth();
+  const [data, setData] = useState({});
+
+  function countValues() {}
+
+  async function handleSetMood(mood, day, month, year) {
+    try {
+      const newData = { ...userDataObj };
+      if (!newData?.[year]) {
+        newData[year] = {};
+      }
+      if (!newData?.[year]?.[month]) {
+        newData[year][month] = {};
+      }
+      newData[year][month][day] = mood;
+      setData(newData);
+      setUserDataObj(newData);
+      const docRef = doc(db, "users", currentUser.uid);
+      const res = await setDoc(
+        docRef,
+        {
+          [year]: {
+            [month]: {
+              [day]: mood,
+            },
+          },
+        },
+        { merge: true },
+      );
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+
   const statuses = {
     num_days: 14,
     time_remaining: "13:14:26",
@@ -24,6 +60,13 @@ export default function Dashboard() {
     Good: "😊",
     Elated: "😍",
   };
+
+  useEffect(() => {
+    if (!currentUser || !userDataObj) {
+      return;
+    }
+    setData(userDataObj);
+  }, [currentUser, userDataObj]);
 
   return (
     <div className="flex flex-col flex-1 gap-6 sm:gap-12 md:gap-16">
@@ -66,7 +109,7 @@ export default function Dashboard() {
           );
         })}
       </div>
-      <Calendar demo />
+      <Calendar demo data={data} handleSetMood={handleSetMood} />
     </div>
   );
 }
