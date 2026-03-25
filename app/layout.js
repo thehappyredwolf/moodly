@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Fugaz_One } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { AuthProvider } from "@/context/AuthContext";
+import Head from "./head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" suppressHydrationWarning>
+      <Head />
       <AuthProvider>
         <body
           className={` w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen
