@@ -5,6 +5,8 @@ import React, { useEffect, useState } from "react";
 import Calendar from "./Calendar";
 import { useAuth } from "@/context/AuthContext";
 import { setDoc } from "firebase/firestore";
+import Login from "./Login";
+import Loading from "./Loading";
 
 const fugazOne = Fugaz_One({
   variable: "--font-fugaz-one",
@@ -13,12 +15,17 @@ const fugazOne = Fugaz_One({
 });
 
 export default function Dashboard() {
-  const { currentUser, userDataObj, setUserDataObj } = useAuth();
+  const { currentUser, userDataObj, setUserDataObj, loading } = useAuth();
   const [data, setData] = useState({});
 
   function countValues() {}
 
-  async function handleSetMood(mood, day, month, year) {
+  async function handleSetMood(mood) {
+    const now = new Date();
+    const day = now.getDate();
+    const month = now.getMonth();
+    const year = now.getFullYear();
+
     try {
       const newData = { ...userDataObj };
       if (!newData?.[year]) {
@@ -68,6 +75,14 @@ export default function Dashboard() {
     setData(userDataObj);
   }, [currentUser, userDataObj]);
 
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (!currentUser) {
+    return <Login />;
+  }
+
   return (
     <div className="flex flex-col flex-1 gap-6 sm:gap-12 md:gap-16">
       <div className="grid grid-cols-3 bg-indigo-50 text-indigo-500 p-4 gap-4 rounded-lg">
@@ -96,6 +111,10 @@ export default function Dashboard() {
         {Object.keys(moods).map((mood, moodIndex) => {
           return (
             <button
+              onClick={() => {
+                const currentMoodValue = moodIndex + 1;
+                handleSetMood(currentMoodValue);
+              }}
               className="p-4 px-5 rounded-2xl purpleShadow duration-200 bg-indigo-50 hover:bg-indigo-100 text-center flex flex-col items-center gap-2 flex-1"
               key={moodIndex}
             >
