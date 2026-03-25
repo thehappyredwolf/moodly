@@ -38,7 +38,6 @@ export default function RootLayout({ children }) {
           Moodly
         </h1>
       </Link>
-      <div className="flex items-center justify-between">PLACEHOLDER STATS</div>
     </header>
   );
 
