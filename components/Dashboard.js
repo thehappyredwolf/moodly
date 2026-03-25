@@ -4,7 +4,8 @@ import { Fugaz_One } from "next/font/google";
 import React, { useEffect, useState } from "react";
 import Calendar from "./Calendar";
 import { useAuth } from "@/context/AuthContext";
-import { setDoc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
+import { db } from "../firebase";
 import Login from "./Login";
 import Loading from "./Loading";
 
@@ -17,8 +18,6 @@ const fugazOne = Fugaz_One({
 export default function Dashboard() {
   const { currentUser, userDataObj, setUserDataObj, loading } = useAuth();
   const [data, setData] = useState({});
-
-  function countValues() {}
 
   async function handleSetMood(mood) {
     const now = new Date();
@@ -128,7 +127,7 @@ export default function Dashboard() {
           );
         })}
       </div>
-      <Calendar demo data={data} handleSetMood={handleSetMood} />
+      <Calendar completeData={data} handleSetMood={handleSetMood} />
     </div>
   );
 }
