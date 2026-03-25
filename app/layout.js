@@ -3,6 +3,7 @@ import "./globals.css";
 import Link from "next/link";
 import { AuthProvider } from "@/context/AuthContext";
 import Head from "./head";
+import Logout from "@/components/Logout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({ children }) {
           Moodly
         </h1>
       </Link>
+      <Logout />
     </header>
   );
 
