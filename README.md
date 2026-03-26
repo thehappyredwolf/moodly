@@ -176,13 +176,13 @@ Built with Tailwind CSS featuring:
 
 ## Future Ideas
 
-- Advanced mood analytics and trends
-- Goals and achievements system
-- Journaling notes for moods
-- Dark mode support
-- Push notifications for reminders
-- Share stats with friends
-- Data export
+- [ ] Advanced mood analytics and trends
+- [ ] Goals and achievements system
+- [ ] Journaling notes for moods
+- [ ] Dark mode support
+- [ ] Push notifications for reminders
+- [ ] Share stats with friends
+- [ ] Data export
 
 ## Environment Variables
 
