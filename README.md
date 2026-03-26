@@ -30,11 +30,6 @@ Built with Next.js, React, and Firebase. Sign up, log your mood each day, and wa
 
 - Firebase 12.11.0 - Auth and database
 
-**Dev Tools:**
-
-- ESLint - Code linting
-- JavaScript - App language
-
 ## Project Structure
 
 ```
