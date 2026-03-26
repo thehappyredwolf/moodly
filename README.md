@@ -2,7 +2,7 @@
 
 A simple mood tracker that lets you log how you're feeling each day on an interactive calendar.
 
-**Try it live:** https://moooodly.netlify.app/
+**Try it live:** [moooodly.netlify.app](https://moooodly.netlify.app)
 
 ## Overview
 
