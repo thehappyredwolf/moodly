@@ -211,7 +211,3 @@ Found a bug or have an idea? Fork the repo and submit a pull request.
 ## License
 
 [MIT](LICENSE) - use it however you want
-
-## Support
-
-Have questions? Open an issue on GitHub.
