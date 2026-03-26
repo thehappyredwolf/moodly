@@ -210,7 +210,7 @@ Found a bug or have an idea? Fork the repo and submit a pull request.
 
 ## License
 
-MIT - use it however you want
+[MIT](LICENSE) - use it however you want
 
 ## Support
 
